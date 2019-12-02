@@ -1,7 +1,6 @@
 % Copies text files to a separate folder to give to statisticians 
 
-clear all
-%thePath = 'C:\Users\tmc54\Documents\EyeTracking\DukeACT_EGT\T2';
+clear 
 thePath = 'C:\Users\tmc54\Documents\EyeTracking\NARSAD_EGT';
 cd(thePath)
 mainFolder = dir;
@@ -10,14 +9,14 @@ textFileFolderDatForProportions = 'C:\Users\tmc54\Documents\EyeTracking\NARSAD_E
 textFileFolder = 'C:\Users\tmc54\Documents\EyeTracking\NARSAD_EGT\TextFilesNARSAD';
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-for index = 1:size(listOfSubjectFolders,2)
-    cd(listOfSubjectFolders{index})
+for subjectNumber = 1:size(listOfSubjectFolders,2)
+    cd(thePath)
+    cd(listOfSubjectFolders{subjectNumber})
     folderContents = dir;
     if(size(folderContents,1)) > 3
         copyfile('*datForProportions.txt', textFileFolderDatForProportions)
         copyfile('*EGT_Analysis.txt', textFileFolder)
     end
-    cd(thePath)
 end
     
 
